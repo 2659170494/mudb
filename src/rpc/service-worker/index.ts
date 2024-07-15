@@ -99,9 +99,10 @@ export class MuRPCServiceWorkerTransport implements MuRPCServerTransport<MuRPCPr
                 }
             } catch (e) {
                 if (e) {
+                    let error = e as Error; // 类型断言
                     return new Response(JSON.stringify({
                         type: 'error',
-                        data: e.stack || e.toString(),
+                        data: error.stack || e.toString(),
                     }), {
                         status: 500,
                         statusText: 'NOT OK',

@@ -101,7 +101,7 @@ export class MuClient {
                     this._socket.close();
                 }
             } catch (e) {
-                this.logger.exception(e);
+                this.logger.exception(e as Error);
                 this._socket.close();
             }
         };
@@ -153,7 +153,7 @@ export class MuClient {
                     try {
                         spec.ready();
                     } catch (e) {
-                        this.logger.exception(e);
+                        this.logger.exception(e as Error);
                     }
                 }
             },
@@ -162,7 +162,7 @@ export class MuClient {
                     try {
                         parser(data, unreliable);
                     } catch (e) {
-                        this.logger.exception(e);
+                        this.logger.exception(e as Error);
                     }
                 } else {
                     checkProtocolConsistency(data);
@@ -178,7 +178,7 @@ export class MuClient {
                     try {
                         spec.close(error);
                     } catch (e) {
-                        this.logger.exception(e);
+                        this.logger.exception(e as Error);
                     }
                 }
             },

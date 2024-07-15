@@ -9,7 +9,8 @@ test('makeError()(string)', (t) => {
     try {
         throw error(msg);
     } catch (e) {
-        t.equal(e.toString(), `Error: ${msg} [mudb/${path}]`, e.toString());
+        let error = e as Error;
+        t.equal(error.toString(), `Error: ${msg} [mudb/${path}]`, error.toString());
         t.end();
     }
 });
@@ -22,7 +23,8 @@ test('makeError()(Error)', (t) => {
     try {
         throw error(new Error(msg));
     } catch (e) {
-        t.equal(e.toString(), `Error: Error: ${msg} [mudb/${path}]`, e.toString());
+        let error = e as Error;
+        t.equal(error.toString(), `Error: Error: ${msg} [mudb/${path}]`, error.toString());
         t.end();
     }
 });
@@ -34,7 +36,7 @@ test('makeError()(SyntaxError)', (t) => {
     try {
         JSON.parse('');
     } catch (e) {
-        t.true(/^Error: SyntaxError: /.test(error(e).toString()), error(e).toString());
+        t.true(/^Error: SyntaxError: /.test(error(String(e)).toString()), error(String(e)).toString());
         t.end();
     }
 });

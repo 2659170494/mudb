@@ -5,7 +5,7 @@ import {
   MuFloat64,
   MuInt8,
   MuArray,
-} from 'mudb/schema';
+} from '../../../mudb/schema';
 
 function tuple<T extends any[]> (...args:T) : T {
   return args;

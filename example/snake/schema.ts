@@ -5,7 +5,7 @@ import {
     MuUnion,
     MuInt8,
     MuArray,
-} from 'mudb/schema';
+} from '../../../mudb/schema';
 
 const MuFloatOrString = new MuUnion({
     float: new MuFloat32(),

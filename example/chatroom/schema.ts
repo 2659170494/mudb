@@ -1,7 +1,7 @@
 import {
     MuUTF8,
     MuStruct,
-} from 'mudb/schema';
+} from '../../../mudb/schema';
 
 export const ChatSchema = {
     client: {

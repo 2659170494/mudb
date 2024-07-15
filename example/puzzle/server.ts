@@ -1,5 +1,5 @@
-import { MuServer } from 'mudb/server';
-import { MuReplicaServer } from 'mudb/replica/server';
+import { MuServer } from '../../../mudb/server';
+import { MuReplicaServer } from '../../../mudb/replica/server';
 import { PuzzleList } from './schema';
 
 export = function (server:MuServer) {

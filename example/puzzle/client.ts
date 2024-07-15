@@ -1,5 +1,5 @@
-import { MuClient } from 'mudb/client';
-import { MuReplicaClient } from 'mudb/replica/client';
+import { MuClient } from '../../../mudb/client';
+import { MuReplicaClient } from '../../../mudb/replica/client';
 import { PuzzleList } from './schema';
 import { ExampleUi, PuzzleDetail } from './ui';
 

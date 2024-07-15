@@ -105,7 +105,7 @@ export class MuDebugSocket implements MuSocket {
                 try {
                     spec.ready();
                 } catch (e) {
-                    this.logger.exception(e);
+                    this.logger.exception(e as Error);
                 }
             },
             message: (data, unreliable) => {
@@ -118,7 +118,7 @@ export class MuDebugSocket implements MuSocket {
                             try {
                                 spec.message(data, true);
                             } catch (e) {
-                                this.logger.exception(e);
+                                this.logger.exception(e as Error);
                             }
                         },
                         calcDelay(this.inLatency, this.inJitter),
@@ -133,7 +133,7 @@ export class MuDebugSocket implements MuSocket {
                                     this._inbox,
                                     (data_) => spec.message(data_, false));
                             } catch (e) {
-                                this.logger.exception(e);
+                                this.logger.exception(e as Error);
                             }
                         },
                         calcDelay(this.inLatency, this.inJitter),
@@ -144,7 +144,7 @@ export class MuDebugSocket implements MuSocket {
                 try {
                     spec.close();
                 } catch (e) {
-                    this.logger.exception(e);
+                    this.logger.exception(e as Error);
                 }
             },
         });
@@ -170,7 +170,7 @@ export class MuDebugSocket implements MuSocket {
                     try {
                         this.socket.send(data_, unreliable_);
                     } catch (e) {
-                        this.logger.exception(e);
+                        this.logger.exception(e as Error);
                     }
                 },
             ),
@@ -236,7 +236,7 @@ export class MuDebugServer implements MuSocketServer {
                 try {
                     spec.ready();
                 } catch (e) {
-                    this.logger.exception(e);
+                    this.logger.exception(e as Error);
                 }
             },
             connection: (socket) => {
@@ -253,14 +253,14 @@ export class MuDebugServer implements MuSocketServer {
                 try {
                     spec.connection(client);
                 } catch (e) {
-                    this.logger.exception(e);
+                    this.logger.exception(e as Error);
                 }
             },
             close: () => {
                 try {
                     spec.close();
                 } catch (e) {
-                    this.logger.exception(e);
+                    this.logger.exception(e as Error);
                 }
             },
         });

@@ -1,7 +1,7 @@
 import readline = require('readline');
 
-import { MuNetSocket } from 'mudb/socket/net/client';
-import { MuClient } from 'mudb/client';
+import { MuNetSocket } from '../../../mudb/socket/net/client';
+import { MuClient } from '../../../mudb/client';
 import { ChatSchema } from './schema';
 
 const socket = new MuNetSocket({

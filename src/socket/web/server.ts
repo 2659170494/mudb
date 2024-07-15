@@ -272,7 +272,7 @@ export class MuWebSocketClient implements MuSocket {
                     try {
                         spec.message(this._connection.pendingMessages[i], false);
                     } catch (e) {
-                        this._logger.exception(e);
+                        this._logger.exception(e as Error);
                     }
                 }
                 this._connection.pendingMessages.length = 0;

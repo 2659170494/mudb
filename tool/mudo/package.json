@@ -2,7 +2,7 @@
   "name": "mudo",
   "version": "0.1.8",
   "description": "Development framework for prototyping mudb applications",
-  "main": "mudo.js",
+  "main": "./bin/mudo.js",
   "bin": {
     "mudo": "./bin/mudo.js"
   },

@@ -1,8 +1,8 @@
 import tcp = require('net');
 import udp = require('dgram');
 
-import { MuNetSocketServer } from 'mudb/socket/net/server';
-import { MuServer } from 'mudb/server';
+import { MuNetSocketServer } from '../../../mudb/socket/net/server';
+import { MuServer } from '../../../mudb/server';
 import { ChatSchema } from './schema';
 
 const tcpServer = tcp.createServer();

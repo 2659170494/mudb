@@ -173,7 +173,7 @@ export class MuRDAStruct<Spec extends { [prop:string]:MuRDA<any, any, any, any> 
                     return (new Function(
                         'rda',
                         'partial',
-                        `/* ${id}:${index} */ return function() { var result = rda.actionSchema.alloc(); result.type = "${id}"; result.data = partial.data${index}.apply(null, arguments); return result; }`,
+                        `/* ${String(id)}:${index} */ return function() { var result = rda.actionSchema.alloc(); result.type = "${String(id)}"; result.data = partial.data${index}.apply(null, arguments); return result; }`,
                     ))(self, savedPartial);
                 } else if (meta.type === 'table') {
                     const result:any = {};
@@ -186,7 +186,7 @@ export class MuRDAStruct<Spec extends { [prop:string]:MuRDA<any, any, any, any> 
                 } else if (meta.type === 'partial') {
                     return wrapPartial(meta.action, (new Function(
                         'partial',
-                        `/* ${id}:${index} */ return function () { return partial.data${index}.apply(null, arguments); }`,
+                        `/* ${String(id)}:${index} */ return function () { return partial.data${index}.apply(null, arguments); }`,
                     ))(savedPartial));
                 }
                 return {};
@@ -196,7 +196,7 @@ export class MuRDAStruct<Spec extends { [prop:string]:MuRDA<any, any, any, any> 
                 'dispatch',
                 'partial',
                 'wrappedDispatch',
-                `/* ${id} */ return function () { partial.data = dispatch.apply(null, arguments); return wrappedDispatch; }`,
+                `/* ${String(id)} */ return function () { partial.data = dispatch.apply(null, arguments); return wrappedDispatch; }`,
             ))(dispatch, savedPartial, wrapPartialRec(root, ''));
         }
 
@@ -227,7 +227,7 @@ export class MuRDAStruct<Spec extends { [prop:string]:MuRDA<any, any, any, any> 
                 return (new Function(
                     'rda',
                     'dispatch',
-                    `/* ${id}:${index} */ return function() { var result = rda.actionSchema.alloc(); result.type = "${id}"; result.data = dispatch(rda._saveStore.stores["${id}"])${index}.apply(null, arguments); return result; }`,
+                    `/* ${String(id)}:${index} */ return function() { var result = rda.actionSchema.alloc(); result.type = "${String(id)}"; result.data = dispatch(rda._saveStore.stores["${String(id)}"])${index}.apply(null, arguments); return result; }`,
                 ))(self, rda.action);
             } else if (meta.type === 'table') {
                 const result:any = {};
@@ -243,7 +243,7 @@ export class MuRDAStruct<Spec extends { [prop:string]:MuRDA<any, any, any, any> 
                     (new Function(
                         'rda',
                         'dispatch',
-                        `/* ${id}:${index} */ return function() { return dispatch(rda._saveStore.stores["${id}"])${index}.apply(null, arguments); }`,
+                        `/* ${String(id)}:${index} */ return function() { return dispatch(rda._saveStore.stores["${String(id)}"])${index}.apply(null, arguments); }`,
                     ))(self, rda.action));
             }
             return {};

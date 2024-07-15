@@ -55,12 +55,12 @@ export class MuRPCServer<Protocol extends MuRPCProtocol<any>, Connection extends
                         }
                     }
                 } catch (e) {
-                    logger && logger.error(e);
+                    logger && logger.error(String(e));
                     response.type = 'error';
                     if (e instanceof Error && e.message) {
                         response.data = e.message;
                     } else {
-                        response.data = e;
+                        response.data = String(e);
                     }
                 }
             });

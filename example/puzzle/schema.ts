@@ -1,5 +1,5 @@
-import { MuRDARegister, MuRDAMap, MuRDAStruct, MuRDAConstant, MuRDAList } from 'mudb/rda';
-import { MuStruct, MuInt32, MuFloat64, MuUTF8 } from 'mudb/schema';
+import { MuRDARegister, MuRDAMap, MuRDAStruct, MuRDAConstant, MuRDAList } from '../../../mudb/rda';
+import { MuStruct, MuInt32, MuFloat64, MuUTF8 } from '../../../mudb/schema';
 
 export const PuzzlePiece = new MuRDAStruct({
     color: new MuRDARegister(new MuUTF8()),

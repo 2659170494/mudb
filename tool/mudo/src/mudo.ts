@@ -1,5 +1,5 @@
-import { MuClient, MuServer } from 'mudb';
-import { MuWebSocketServer } from 'mudb/socket/web/server';
+import { MuClient, MuServer } from '../../../../mudb';
+import { MuWebSocketServer } from '../../../../mudb/socket/web/server';
 import path = require('path');
 import temp = require('temp');
 import fs = require('fs');

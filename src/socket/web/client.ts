@@ -99,7 +99,7 @@ export class MuWebSocket implements MuSocket {
                     } catch (e) {
                         socket.onmessage = null;
                         self.close();
-                        self._logger.error(e);
+                        self._logger.error(String(e));
                         return;
                     }
 

@@ -324,7 +324,7 @@ export class MuRTCSocketServer implements MuSocketServer {
             }
             client.handleSignal(data);
         } catch (e) {
-            this._logger.exception(e);
+            this._logger.exception(e as Error);
         }
     }
 
